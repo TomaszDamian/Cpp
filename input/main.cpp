@@ -46,5 +46,21 @@ int main()
     //print from 10 down to 0
     for(int i = 10; i > 0; i--){
         cout << i << endl;
-    };*/
+    };
+
+    //find average for 5 numbers
+    float nInput;
+    float Total;
+    float AmountOfnumbers;
+    float Average;
+
+    for(int counter = 0; counter <= 4; counter++){
+        cout << "Input your number: ";
+        cin >> nInput;
+        Total = Total + nInput;
+        AmountOfnumbers++;
+    };
+    Average = Total / AmountOfnumbers;
+    cout << "you input " << AmountOfnumbers << " numbers" << endl;
+    cout << "the average of all the numbers is: " << Average << endl;*/
 }
