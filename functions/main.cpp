@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,20 +16,26 @@ string reverseString(string startString) {
 
 	// Herna snuid thid vid inntakinu
 
-	return reverseString;
 }
 
-bool palindromeCheck(string str) {
+bool palindromeCheck(string Palindrome) {
 
-	int length = str.length();
-    string OriginalName = str;
+    string originalName = Palindrome;
+
+    std::transform(originalName.begin(), originalName.end(), originalName.begin(), ::tolower);
+    std::transform(Palindrome.begin(), Palindrome.end(), Palindrome.begin(), ::tolower);
+
+    originalName.erase(std::remove(originalName.begin(),originalName.end(), ' '),originalName.end());
+    Palindrome.erase(std::remove(Palindrome.begin(),Palindrome.end(), ' '),Palindrome.end());
+
+
+    int length = Palindrome.length();
 
 	for (int i = 0; i < length/2; i++) {
-		swap(str[i], str[length-i-1]);
+        swap(Palindrome[i], Palindrome[length-i-1]);
 	};
 
-
-    if(OriginalName == str){
+    if(originalName == Palindrome){
         return true;
 	}
 	else{
@@ -47,7 +55,7 @@ int main() {
 	// Kallid a follin her inni
 	string UIName;
 	cout << "Enter a name: ";
-	cin >> UIName;
+	getline(cin, UIName);
 
 	bool IsPalindrome = palindromeCheck(UIName);
 

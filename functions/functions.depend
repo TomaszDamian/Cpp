@@ -1,4 +1,6 @@
 # depslib dependency file v1.0
-1515577903 source:h:\c++\functions\main.cpp
+1515664497 source:h:\c++\functions\main.cpp
 	<iostream>
+	<string>
+	<algorithm>
 
