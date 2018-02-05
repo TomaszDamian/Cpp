@@ -4,19 +4,54 @@
 
 using namespace std;
 
-void exampleFunction(string str) {
-	int length = str.length();
-	for(int i = 0; i < length; i++) {
-		cout << str[i] << endl;
-	}
+int Fibonacci(int NumberQuantity){
+    double previous_number=0;
+    double current_number=1;
+    double next_number;
+    if(NumberQuantity <= 0){
+        return NULL;
+    };
+
+
+    for(int current_iteration = 2; current_iteration <= NumberQuantity; current_iteration++){
+        //1. Finna hvert naesta gildi er.
+        next_number=previous_number+current_number;
+
+
+        previous_number=current_number;
+        current_number=next_number;
+        //next number er ordin osonn.
+    };
+    cout << current_number << endl;
 }
 
-string reverseString(string startString) {
-	string reverseString = "";
+int PowerOf(int number1, int number2){
+    int Complete = number1;
+    if(number2 < 0){
+        return 0;
+    };
 
-	// Herna snuid thid vid inntakinu
+    if(number2 == 0){
+        return 1;
+    };
 
-}
+    for(int i = 1; i < number2; i++){
+        Complete = Complete * number1;
+    };
+
+    return Complete;
+};
+
+int PrintToNumber(int TopNumber){
+    if(TopNumber < 0){
+        cout << "the number is too low";
+        return 0;
+    };
+
+    for(int i = 0; i <= TopNumber; i++){
+        cout << i << endl;
+    };
+};
 
 bool palindromeCheck(string Palindrome) {
 
@@ -43,16 +78,41 @@ bool palindromeCheck(string Palindrome) {
 	};
 }
 
-int longestMatch(string str) {
-	int maxCount = 0;
-
-	// Herna finnid thid lengstu eins runu
-
-	return maxCount;
-}
-
 int main() {
 	// Kallid a follin her inni
+	double Input;
+	cout << "Input a number: ";
+	cin >> Input;
+	Fibonacci(Input);
+
+	/*
+	//Power of
+	int N1;
+	int N2;
+	int Total;
+	cout << "Input one number: ";
+	cin >> N1;
+	cout << "Input another number: ";
+	cin >> N2;
+
+	Total = PowerOf(N1, N2);
+
+	if(Total == 0){
+        cout << "the second number cannot be lower or equal to 0";
+	}
+	else{
+        cout << N1 << " to the power of " << N2 << " is " << Total;
+	};*/
+
+	/*
+	//pring to number
+	int InputNumber;
+	cout << "input a number: ";
+	cin >> InputNumber;
+	PrintToNumber(InputNumber);*/
+
+	/*
+	//palindrome check
 	string UIName;
 	cout << "Enter a name: ";
 	getline(cin, UIName);
@@ -64,6 +124,6 @@ int main() {
 	}
 	else{
         cout << "The word " << UIName << " is not palindrome :(";
-	}
+	}*/
 	return 0;
 }
