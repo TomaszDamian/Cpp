@@ -233,7 +233,7 @@ void SortingOnTheGo() {
 	}
 }
 
-int KeyValueVectorSortingOnTheGo() {
+void KeyValueVectorSortingOnTheGo() {
 	map<string, int> ValueKeyMap = { {"Name", 12}, {"Another Name", 33}, {"Tomasz",11}, {"Milan", 30}, {"Daniel", 40} };
 	vector<pair<string, int>> MapVector;
 	int KeyPressed = 0;
@@ -291,6 +291,90 @@ int KeyValueVectorSortingOnTheGo() {
 		else {
 			system("CLS");
 			cout << "this is not a valid option" << endl;
+		}
+	}
+}
+
+int main() {
+	vector<tuple<string, string, string, string>> IDVector{ {"One", "ID2", "3", "0000000000"},{ "Two", "ID1", "2", "1111111111" },{ "Jack", "ID4", "1", "2222222222" },{ "Tomasz", "ID3", "4", "3333333333" } };
+	int TypedKey = 0;
+	bool SortedByName = true;
+	bool SortedByID = true;
+	bool SortedByAge = true;
+	bool SortedBySocialNumber = true;
+	while (TypedKey != 'q') {
+		cout << "SocialN(4)\t" << "Age(3)\t" << "ID(2)\t" << "Name(1)\t" << endl;
+		for (const auto& value : IDVector) {
+			cout << get<3>(value) << "\t" << get<2>(value) << "\t" << get<1>(value) << "\t" << get<0>(value) << endl;
+		}
+		cout << "You can sort by pressing the number inside the bracket, use q to quit";
+		TypedKey = _getch();
+		if (TypedKey == '1') {
+			system("CLS");
+			if (SortedByName) {
+				sort(begin(IDVector), end(IDVector), [](auto const &t1, auto const &t2) {
+					return get<0>(t1) < get<0>(t2); // or use a custom compare function
+				});
+				SortedByName = false;
+			}
+			else {
+				sort(rbegin(IDVector), rend(IDVector), [](auto const &t1, auto const &t2) {
+					return get<0>(t1) < get<0>(t2); // or use a custom compare function
+				});
+				SortedByName = true;
+			}
+		}
+		else if (TypedKey == '2') {
+			system("CLS");
+			if (SortedByID) {
+				sort(begin(IDVector), end(IDVector), [](auto const &t1, auto const &t2) {
+					return get<1>(t1) < get<1>(t2); // or use a custom compare function
+				});
+				SortedByID = false;
+			}
+			else {
+				sort(rbegin(IDVector), rend(IDVector), [](auto const &t1, auto const &t2) {
+					return get<1>(t1) < get<1>(t2); // or use a custom compare function
+				});
+				SortedByID = true;
+			}
+		}
+		else if (TypedKey == '3') {
+			system("CLS");
+			if (SortedByAge) {
+				sort(begin(IDVector), end(IDVector), [](auto const &t1, auto const &t2) {
+					return get<2>(t1) < get<2>(t2); // or use a custom compare function
+				});
+				SortedByAge = false;
+			}
+			else {
+				sort(rbegin(IDVector), rend(IDVector), [](auto const &t1, auto const &t2) {
+					return get<2>(t1) < get<2>(t2); // or use a custom compare function
+				});
+				SortedByAge = true;
+			}
+		}
+		else if (TypedKey == '4') {
+			system("CLS");
+			if (SortedBySocialNumber) {
+				sort(begin(IDVector), end(IDVector), [](auto const &t1, auto const &t2) {
+					return get<3>(t1) < get<3>(t2); // or use a custom compare function
+				});
+				SortedBySocialNumber = false;
+			}
+			else {
+				sort(rbegin(IDVector), rend(IDVector), [](auto const &t1, auto const &t2) {
+					return get<3>(t1) < get<3>(t2); // or use a custom compare function
+				});
+				SortedBySocialNumber = true;
+			}
+		}
+		else if (TypedKey == 'q') {
+			system("CLS");
+			cout << "goodbye!" << endl;
+		}
+		else {
+			system("cls");
 		}
 	}
 }
