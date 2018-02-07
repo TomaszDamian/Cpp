@@ -468,11 +468,11 @@ void VectorStructSorting() {
 	}
 }
 
-int Main() {
+int main() {
 	//call what functions you want below here
 	//functions avalible:
 	//LowHighMedianNumbers, RemoveAllAstrings, NameVectorAddingAndPrinting, InsertNumbersIntoVectorAndFindAverage
 	//InsertTenThingsIntoVectorAndCheckForDupes, OnlyInOne_OnlyInFirst_OnlyInSecond, SortingOnTheGo, KeyValueVectorSortingOnTheGo
 	//VectorTuple and VectorStructSorting
-	//you call them by using the name and adding () at the end
+	//you call them by using the name and adding (); at the end
 }
