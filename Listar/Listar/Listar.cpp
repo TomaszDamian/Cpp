@@ -295,7 +295,7 @@ void KeyValueVectorSortingOnTheGo() {
 	}
 }
 
-int main() {
+void VectorTuple() {
 	vector<tuple<string, string, string, string>> IDVector{ {"One", "ID2", "3", "0000000000"},{ "Two", "ID1", "2", "1111111111" },{ "Jack", "ID4", "1", "2222222222" },{ "Tomasz", "ID3", "4", "3333333333" } };
 	int TypedKey = 0;
 	bool SortedByName = true;
@@ -377,4 +377,102 @@ int main() {
 			system("cls");
 		}
 	}
+}
+
+void VectorStructSorting() {
+	struct Person
+	{
+		std::string Name;
+		std::string ID;
+		int Age;
+		std::string SocialNumber;
+	};
+	std::vector<Person> people;
+	int keyPressed = 0;
+	bool sortedBySocialNum = false;
+	bool sortedByID = false;
+	bool sortedByAge = false;
+	bool sortedByName = true;
+	people.push_back(Person{ "Ao","ID3",17,"3005003660" });
+	people.push_back(Person{ "Skitts","ID1",19,"0785982571" });
+	people.push_back(Person{ "Akko","ID7",20,"1572973579" });
+	people.push_back(Person{ "Boble","ID8",18,"0897994658" });
+
+	while (keyPressed != 'q') {	
+		cout << "Social Num(1)\t" << "ID(2)\t" << "Age(3)\t" << "Name(4)\t" << endl;
+		for (auto PersonInfo : people) {
+			cout << PersonInfo.SocialNumber << "\t" << PersonInfo.ID << "\t" << PersonInfo.Age << "\t" << PersonInfo.Name << endl;
+		}
+		cout << "press the number in the bracket to sort by it and press q to quit";
+		keyPressed = _getch();
+		
+		switch (keyPressed)
+		{		
+		case '1':
+			system("cls");
+			if (sortedBySocialNum) {
+				std::sort(people.begin(), people.end(), [](const Person& lhs, const Person& rhs) {return lhs.SocialNumber < rhs.SocialNumber; });
+				sortedBySocialNum = false;
+			}
+			else {
+				std::sort(people.rbegin(), people.rend(), [](const Person& lhs, const Person& rhs) {return lhs.SocialNumber < rhs.SocialNumber; });
+				sortedBySocialNum = true;
+			}
+			break;
+
+		case '2':
+			system("cls");
+			if (sortedByID) {
+				std::sort(people.begin(), people.end(), [](const Person& lhs, const Person& rhs) {return lhs.ID < rhs.ID; });
+				sortedByID = false;
+			}
+			else {
+				std::sort(people.rbegin(), people.rend(), [](const Person& lhs, const Person& rhs) {return lhs.ID < rhs.ID; });
+				sortedByID = true;
+			}
+			break;
+
+		case '3':
+			system("cls");
+			if (sortedByAge) {
+				std::sort(people.begin(), people.end(), [](const Person& lhs, const Person& rhs) {return lhs.Age < rhs.Age; });
+				sortedByAge = false;
+			}
+			else {
+				std::sort(people.rbegin(), people.rend(), [](const Person& lhs, const Person& rhs) {return lhs.Age < rhs.Age; });
+				sortedByAge = true;
+			}
+			break;
+
+		case '4':
+			system("cls");
+			if (sortedByName) {
+				std::sort(people.begin(), people.end(), [](const Person& lhs, const Person& rhs) {return lhs.Name < rhs.Name; });
+				sortedByName = false;
+			}
+			else {
+				std::sort(people.rbegin(), people.rend(), [](const Person& lhs, const Person& rhs) {return lhs.Name < rhs.Name; });
+				sortedByName = true;
+			}
+			break;
+
+		case 'q':
+			system("cls");
+			cout << "goodbye!" << endl;
+			break;
+		
+		default:
+			system("cls");
+			break;
+		}	
+	}
+}
+
+int Main() {
+	//call what functions you want below here
+	//functions avalible:
+	//LowHighMedianNumbers, RemoveAllAstrings, NameVectorAddingAndPrinting, InsertNumbersIntoVectorAndFindAverage
+	//InsertTenThingsIntoVectorAndCheckForDupes, OnlyInOne_OnlyInFirst_OnlyInSecond, SortingOnTheGo, KeyValueVectorSortingOnTheGo
+	//VectorTuple and VectorStructSorting
+	//you call them by using the name and adding () at the end
 }
