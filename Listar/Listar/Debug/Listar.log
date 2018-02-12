@@ -1,2 +1,17 @@
 ﻿  Listar.cpp
-  Listar.vcxproj -> H:\c++\Listar\Debug\Listar.exe
+h:\c++\listar\listar\listar.cpp(424): error C2143: syntax error: missing ']' before 'constant'
+h:\c++\listar\listar\listar.cpp(424): error C3260: 'constant': skipping unexpected token(s) before lambda body
+h:\c++\listar\listar\listar.cpp(432): error C3493: 'sortedBySocialNum' cannot be implicitly captured because no default capture mode has been specified
+h:\c++\listar\listar\listar.cpp(433): error C3493: 'people' cannot be implicitly captured because no default capture mode has been specified
+h:\c++\listar\listar\listar.cpp(443): error C3493: 'sortedByID' cannot be implicitly captured because no default capture mode has been specified
+h:\c++\listar\listar\listar.cpp(454): error C3493: 'sortedByAge' cannot be implicitly captured because no default capture mode has been specified
+h:\c++\listar\listar\listar.cpp(465): error C3493: 'sortedByName' cannot be implicitly captured because no default capture mode has been specified
+h:\c++\listar\listar\listar.cpp(476): error C3493: 'SortedByBehaviour' cannot be implicitly captured because no default capture mode has been specified
+h:\c++\listar\listar\listar.cpp(493): error C2784: 'unknown-type std::operator -(const std::reverse_iterator<_RanIt> &,const std::reverse_iterator<_RanIt2> &)': could not deduce template argument for 'const std::reverse_iterator<_RanIt> &' from 'std::string'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xutility(1413): note: see declaration of 'std::operator -'
+h:\c++\listar\listar\listar.cpp(493): error C2784: 'unknown-type std::operator -(const std::move_iterator<_RanIt> &,const std::move_iterator<_RanIt2> &)': could not deduce template argument for 'const std::move_iterator<_RanIt> &' from 'std::string'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xutility(2278): note: see declaration of 'std::operator -'
+h:\c++\listar\listar\listar.cpp(424): error C2676: binary '-': 'std::string' does not define this operator or a conversion to a type acceptable to the predefined operator
+h:\c++\listar\listar\listar.cpp(493): error C2143: syntax error: missing ';' before '}'
+h:\c++\listar\listar\listar.cpp(496): error C2601: 'main': local function definitions are illegal
+h:\c++\listar\listar\listar.cpp(505): fatal error C1004: unexpected end-of-file found

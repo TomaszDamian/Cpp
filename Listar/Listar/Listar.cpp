@@ -384,22 +384,44 @@ void VectorStructSorting() {
 		std::string ID;
 		int Age;
 		std::string SocialNumber;
+		int Behaviour;
 	};
 	std::vector<Person> people;
 	int keyPressed = 0;
+	std::string PersonBehaviour;
 	bool sortedBySocialNum = false;
 	bool sortedByID = false;
 	bool sortedByAge = false;
+	bool SortedByBehaviour = false;
 	bool sortedByName = true;
-	people.push_back(Person{ "Ao","ID3",17,"3005003660" });
-	people.push_back(Person{ "Skitts","ID1",19,"0785982571" });
-	people.push_back(Person{ "Akko","ID7",20,"1572973579" });
-	people.push_back(Person{ "Boble","ID8",18,"0897994658" });
+	people.push_back(Person{ "Ao","ID3",17,"3005003660",2 });
+	people.push_back(Person{ "Skitts","ID1",19,"0785982571",1 });
+	people.push_back(Person{ "Akko","ID7",20,"1572973579",4 });
+	people.push_back(Person{ "Boble","ID8",18,"0897994658",3 });
 
 	while (keyPressed != 'q') {	
-		std::cout << "Social Num(1)\t" << "ID(2)\t" << "Age(3)\t" << "Name(4)\t" << std::endl;
+		std::cout << "Social Num(1)\t" << "ID(2)\t" << "Age(3)\t" << "Name(4)\t" << "Behaviour(5)" << std::endl;
 		for (auto PersonInfo : people) {
-			std::cout << PersonInfo.SocialNumber << "\t" << PersonInfo.ID << "\t" << PersonInfo.Age << "\t" << PersonInfo.Name << std::endl;
+			
+			switch (PersonInfo.Behaviour) {
+				case 1:
+					PersonBehaviour = "Good";
+					break;
+
+				case 2:
+					PersonBehaviour = "Mediocre";
+					break;
+
+				case 3:
+					PersonBehaviour = "Ok";
+					break;
+
+				case 4:
+					PersonBehaviour = "Bad";
+					break;
+			}
+
+			std::cout << PersonInfo.SocialNumber << "\t" << PersonInfo.ID << "\t" << PersonInfo.Age <<  "\t" << PersonInfo.Name << "\t" << PersonBehaviour << std::endl;
 		}
 		std::cout << "press the number in the bracket to sort by it and press q to quit";
 		keyPressed = _getch();
@@ -450,6 +472,17 @@ void VectorStructSorting() {
 			}
 			break;
 
+		case '5':
+			if (SortedByBehaviour) {
+				std::sort(people.begin(), people.end(), [](const Person& lhs, const Person& rhs) {return lhs.Behaviour < rhs.Behaviour; });
+				SortedByBehaviour = false;
+			}
+			else{
+				std::sort(people.rbegin(), people.rend(), [](const Person& lhs, const Person& rhs) {return lhs.Behaviour < rhs.Behaviour; });
+				SortedByBehaviour = true;
+			}
+			break;
+
 		case 'q':
 			std::cout << "goodbye!" << std::endl;
 			break;
@@ -467,4 +500,5 @@ int main() {
 	//InsertTenThingsIntoVectorAndCheckForDupes, OnlyInOne_OnlyInFirst_OnlyInSecond, SortingOnTheGo, KeyValueVectorSortingOnTheGo
 	//VectorTuple and VectorStructSorting
 	//you call them by using the name and adding (); at the end
+	VectorStructSorting();
 }
