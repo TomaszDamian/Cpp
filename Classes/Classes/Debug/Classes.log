@@ -1,2 +1,4 @@
 ﻿  Classes.cpp
-  Classes.vcxproj -> H:\c++\Classes\Debug\Classes.exe
+h:\cpp\classes\classes\classes.cpp(100): error C2512: 'Car': no appropriate default constructor available
+  h:\cpp\classes\classes\classes.cpp(83): note: see declaration of 'Car'
+h:\cpp\classes\classes\classes.cpp(108): error C2661: 'ArmouredCar::ArmouredCar': no overloaded function takes 3 arguments
